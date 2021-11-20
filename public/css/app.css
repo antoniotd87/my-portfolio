@@ -10971,3 +10971,35 @@ a.text-dark:focus {
   background-color: #1B98FF;
 }
 
+.icon-control {
+  background-color: #81C6FF;
+}
+
+.text-blue-800 {
+  color: #004D8D;
+}
+
+.text-blue-700 {
+  color: #0074D3;
+}
+
+.text-blue-600 {
+  color: #1B98FF;
+}
+
+.text-blue-500 {
+  color: #62B9FF;
+}
+
+.text-blue-400 {
+  color: #81C6FF;
+}
+
+.text-blue-300 {
+  color: #A0D4FF;
+}
+
+.text-blue-200 {
+  color: #C0E3FF;
+}
+

@@ -4,19 +4,18 @@
       <a class="navbar-brand" href="#">
         <img :src="`img/TONY.png`" height="40" alt="" />
       </a>
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Proyectos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Acerca de mi</a>
-        </li>
-      </ul>
       <div class="">
-        <button type="button" class="btn btn-primary">Trabajemos juntos</button>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Proyectos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Acerca de mi</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>

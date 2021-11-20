@@ -3,11 +3,15 @@
     <div class="container py-5">
       <div class="row align-items-center">
         <div class="about-me col-md-6">
-          <div class="title">
-            <h2>Soy Antonio Tomas y soy un desarrollador web</h2>
+          <div class="title mb-4">
+            <h2 class="text-blue-800 font-weight-bold">
+              Soy Antonio Tomas y soy un desarrollador web
+            </h2>
           </div>
-          <a href="#" class="btn btn-light">Mira mis otros proyectos</a>
-          <a href="#" class="btn btn-link">Trabajemos Juntos</a>
+          <a href="#" class="btn btn-light text-blue-700">Mira mis otros proyectos</a>
+          <a href="#" class="btn btn-link text-blue-800"
+            >Trabajemos Juntos</a
+          >
         </div>
         <div class="last-project col-md-6">
           <div class="p-1">
@@ -34,8 +38,8 @@ export default {};
   background-position: center center;
   background-size: cover;
 }
-.btn-link {
-  color: white;
+.btn-link:hover {
+  text-decoration: none;
 }
 </style>
 

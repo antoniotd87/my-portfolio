@@ -19,9 +19,12 @@ Route::get('/admin', function () {
 
 Route::prefix('admin')->group(function () {
     Auth::routes();
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/projects', 'ProjectController');
+    Route::resource('/prospects', 'ProspectController');
+    Route::resource('/testimonials', 'TestimonialController');
 });
 
 Route::get('/', 'InicioController')->name('inicio');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
