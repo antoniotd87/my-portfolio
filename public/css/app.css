@@ -10962,3 +10962,12 @@ a.text-dark:focus {
   }
 }
 
+.btn-primary {
+  background-color: #62B9FF;
+  border-color: #62B9FF;
+}
+
+.btn-primary:hover {
+  background-color: #1B98FF;
+}
+

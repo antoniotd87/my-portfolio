@@ -1,11 +1,20 @@
 <template>
-    <h1>Desde Inicio</h1>
+  <div>
+    <barra-navegacion/>
+    <banner/>
+  </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+import BarraNavegacion from "./Nabvar.vue";
+import Banner from "./Banner.vue";
+export default {
+  components: {
+      BarraNavegacion,
+      Banner,
+  },
+  mounted() {
+    console.log("Component mounted.");
+  },
+};
 </script>

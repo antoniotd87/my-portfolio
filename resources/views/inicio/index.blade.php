@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.inicio')
 
 @section('content')
     <pagina-inicio>

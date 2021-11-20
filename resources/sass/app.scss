@@ -6,3 +6,11 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.btn-primary{
+    background-color: $blue-500;
+    border-color: $blue-500;
+    &:hover{
+        background-color: $blue-600;
+    }
+}
