@@ -10962,6 +10962,16 @@ a.text-dark:focus {
   }
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 .btn-primary {
   background-color: #62B9FF;
   border-color: #62B9FF;
@@ -10972,6 +10982,14 @@ a.text-dark:focus {
 }
 
 .icon-control {
+  background-color: #81C6FF;
+}
+
+.latest-project p {
+  background-color: #62B9FF;
+}
+
+.img-profile-content .fondo::after {
   background-color: #81C6FF;
 }
 

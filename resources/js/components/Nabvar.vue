@@ -6,14 +6,20 @@
       </a>
       <div class="">
         <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link :to="{ name: 'inicio' }">
+              <a class="nav-link">Inicio</a>
+            </router-link>
+          </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Inicio</a>
+            <router-link :to="{ name: 'projects' }">
+              <a class="nav-link">Proyectos</a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Proyectos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Acerca de mi</a>
+            <router-link :to="{ name: 'about' }">
+              <a class="nav-link">Acerca de mi</a>
+            </router-link>
           </li>
         </ul>
       </div>

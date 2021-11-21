@@ -1,41 +1,56 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
 
-.btn-primary{
+.btn-primary {
     background-color: $blue-500;
     border-color: $blue-500;
-    &:hover{
+    &:hover {
         background-color: $blue-600;
     }
 }
 .icon-control {
- background-color: $blue-400;
+    background-color: $blue-400;
+}
+.latest-project p {
+    background-color: $blue-500;
 }
 
-.text-blue-800{
+.img-profile-content .fondo::after {
+    background-color: $blue-400;
+}
+
+.text-blue-800 {
     color: $blue-800;
 }
-.text-blue-700{
+.text-blue-700 {
     color: $blue-700;
 }
-.text-blue-600{
+.text-blue-600 {
     color: $blue-600;
 }
-.text-blue-500{
+.text-blue-500 {
     color: $blue-500;
 }
-.text-blue-400{
+.text-blue-400 {
     color: $blue-400;
 }
-.text-blue-300{
+.text-blue-300 {
     color: $blue-300;
 }
-.text-blue-200{
+.text-blue-200 {
     color: $blue-200;
 }

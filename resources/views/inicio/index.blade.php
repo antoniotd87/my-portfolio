@@ -1,5 +1,5 @@
 @extends('layouts.inicio')
 
 @section('content')
-    <pagina-inicio>
+    <app/>
 @endsection

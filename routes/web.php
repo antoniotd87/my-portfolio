@@ -25,6 +25,6 @@ Route::prefix('admin')->group(function () {
     Route::resource('/testimonials', 'TestimonialController');
 });
 
-Route::get('/', 'InicioController')->name('inicio');
+Route::get('/', 'InicioController@index')->name('inicio');
 
 
