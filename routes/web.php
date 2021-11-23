@@ -26,5 +26,8 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/', 'InicioController@index')->name('inicio');
+Route::get('/api/latestProject', 'InicioController@latestProject')->name('latestProject');
+Route::get('/api/latestThreeProject', 'InicioController@latestThreeProject')->name('latestThreeProject');
+Route::get('/api/allProjects', 'InicioController@allProjects')->name('allProjects');
 
 

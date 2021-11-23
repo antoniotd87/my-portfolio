@@ -16,75 +16,32 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div
+            class="carousel-item"
+            v-for="(latestThreeProject, index) in latestThreeProjects"
+            :key="index"
+            :class="index == 0 ? 'active' : ''"
+          >
             <div class="row align-items-center p-5">
               <div class="about-me col-md-6">
                 <div class="title mb-4">
                   <h2 class="text-blue-800 font-weight-bold">
-                    Sistema de Tickets
+                    {{ latestThreeProject.name }}
                   </h2>
                 </div>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo
-                  aliquam id quisquam consectetur eveniet voluptate dolorum
-                  voluptatibus consequuntur quis nesciunt quibusdam, distinctio
-                  tenetur perspiciatis fugiat. Nulla consectetur quod delectus
-                  libero.
+                  {{ latestThreeProject.description.substr(0, 300) }}
                 </p>
                 <a href="#" class="btn btn-primary">Mira mis otros proyectos</a>
                 <a href="#" class="btn btn-link text-blue-800"
                   >Visita el proyecto</a
                 >
               </div>
-              <div class="last-project col-md-6">
-                <div class="p-1">
+              <div class="last-project col-md-6 text-center">
+                <div class="m-1 project">
                   <img
-                    :src="'storage/projects/tdesign.png'"
-                    class="img-fluid rounded"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row align-items-center p-5">
-              <div class="about-me col-md-6">
-                <div class="title mb-4">
-                  <h2 class="text-blue-800 font-weight-bold">Intranet</h2>
-                </div>
-                <a href="#" class="btn btn-primary">Mira mis otros proyectos</a>
-                <a href="#" class="btn btn-link text-blue-800"
-                  >Visita el proyecto</a
-                >
-              </div>
-              <div class="last-project col-md-6">
-                <div class="p-1">
-                  <img
-                    :src="'storage/projects/tdesign.png'"
-                    class="img-fluid rounded"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row align-items-center p-5">
-              <div class="about-me col-md-6">
-                <div class="title mb-4">
-                  <h2 class="text-blue-800 font-weight-bold">Evaluacion 360</h2>
-                </div>
-                <a href="#" class="btn btn-primary">Mira mis otros proyectos</a>
-                <a href="#" class="btn btn-link text-blue-800"
-                  >Visita el proyecto</a
-                >
-              </div>
-              <div class="last-project col-md-6">
-                <div class="p-1">
-                  <img
-                    :src="'storage/projects/tdesign.png'"
-                    class="img-fluid rounded"
+                    :src="`storage/${latestThreeProject.image}`"
+                    class="img-fluid"
                     alt=""
                   />
                 </div>
@@ -122,7 +79,28 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      latestThreeProjects: [],
+      carrouselActive: Boolean,
+    };
+  },
+  mounted() {
+    this.getLatestThreeProject();
+  },
+  methods: {
+    async getLatestThreeProject() {
+      try {
+        const response = await axios.get("/api/latestThreeProject");
+        this.latestThreeProjects = response.data.data;
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -132,8 +110,13 @@ export default {};
   padding: 1rem;
 }
 .icon-control {
-  padding: .8rem;
+  padding: 0.8rem;
   border-radius: 50%;
+}
+.project {
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 15px;
 }
 </style>
 

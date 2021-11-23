@@ -20,7 +20,6 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Descripcion</th>
                                     <th scope="col">Link</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
@@ -30,7 +29,6 @@
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->description }}</td>
                                         <td>{{ $item->link }}</td>
                                         <td>
                                             <a href="{{ route('projects.edit', ['project' => $item->id]) }}"

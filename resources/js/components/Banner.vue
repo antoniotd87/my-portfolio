@@ -14,22 +14,27 @@
             >
             <a href="#" class="btn btn-link text-blue-800">Trabajemos Juntos</a>
           </div>
-          <div class="last-project col-md-6">
-            <div class="m-1 latest-project">
+          <div class="last-project col-md-6 text-center">
+            <div class="m-1 latest-project ">
               <img
-                :src="'storage/projects/tdesign.png'"
-                class="img-fluid rounded"
+                v-if="latestProject.image != undefined"
+                :src="`storage/${latestProject.image}`"
+                class="img-fluid"
                 alt=""
               />
-              <p><span>Ultimo Proyecto: Sistema de Tickets</span></p>
+              <p>
+                <span>Ultimo Proyecto: {{ latestProject.name }}</span>
+              </p>
             </div>
           </div>
         </div>
       </div>
       <div v-else>
-        <div class="d-flex flex-column align-items-center text-center my-3 py-5">
+        <div
+          class="d-flex flex-column align-items-center text-center my-3 py-5"
+        >
           <div class="title mb-4">
-            <h2 class="text-blue-800 font-weight-bold">{{title}}</h2>
+            <h2 class="text-blue-800 font-weight-bold">{{ title }}</h2>
           </div>
           <div class="buttons">
             <a href="#" class="btn btn-light text-blue-800"
@@ -47,11 +52,25 @@
 
 <script>
 export default {
-  props: ["inicio","title"],
+  props: ["inicio", "title"],
   data() {
     return {
-      inicio: Boolean,
+      latestProject: {},
     };
+  },
+  mounted() {
+    this.getLatestProject();
+  },
+  methods: {
+    async getLatestProject() {
+      try {
+        const response = await axios.get("/api/latestProject");
+        this.latestProject = response.data;
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
+    },
   },
 };
 </script>
@@ -68,6 +87,9 @@ export default {
 }
 .latest-project {
   position: relative;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 15px;
 }
 .latest-project p {
   opacity: 0.9;
