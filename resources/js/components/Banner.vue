@@ -9,13 +9,19 @@
                 Soy Antonio Tomas y soy un desarrollador web
               </h2>
             </div>
-            <a href="#" class="btn btn-light text-blue-700"
-              >Mira mis otros proyectos</a
-            >
-            <a href="#" class="btn btn-link text-blue-800">Trabajemos Juntos</a>
+            <router-link :to="{ name: 'projects' }">
+              <a href="#" class="btn btn-light text-blue-700"
+                >Mira mis otros proyectos</a
+              >
+            </router-link>
+            <router-link :to="{ name: 'contactme' }">
+              <a href="#" class="btn btn-link text-blue-800"
+                >Trabajemos Juntos</a
+              >
+            </router-link>
           </div>
           <div class="last-project col-md-6 text-center">
-            <div class="m-1 latest-project ">
+            <div class="m-1 latest-project">
               <img
                 v-if="latestProject.image != undefined"
                 :src="`storage/${latestProject.image}`"
@@ -37,12 +43,16 @@
             <h2 class="text-blue-800 font-weight-bold">{{ title }}</h2>
           </div>
           <div class="buttons">
-            <a href="#" class="btn btn-light text-blue-800"
-              >Trabajemos Juntos</a
-            >
-            <a href="#" class="btn btn-link text-blue-700"
-              >Mira mis otros proyectos</a
-            >
+            <router-link :to="{ name: 'contactme' }">
+              <a href="#" class="btn btn-light text-blue-800"
+                >Trabajemos Juntos</a
+              >
+            </router-link>
+            <router-link :to="{ name: 'projects' }">
+              <a href="#" class="btn btn-link text-blue-700"
+                >Mira mis otros proyectos</a
+              >
+            </router-link>
           </div>
         </div>
       </div>

@@ -7,7 +7,11 @@
           <h2 class="text-blue-800 font-weight-bold">Creemeos algo nuevo</h2>
         </div>
         <div class="buttons">
-          <a href="#" class="btn btn-light text-blue-800">Trabajemos Juntos</a>
+                      <router-link :to="{ name: 'contactme' }">
+              <a href="#" class="btn btn-light text-blue-800"
+                >Trabajemos Juntos</a
+              >
+            </router-link>
           <a href="#" class="btn btn-link text-blue-700"
             >Mira mis otros proyectos</a
           >

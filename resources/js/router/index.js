@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Inicio from '../pages/Inicio.vue'
 import Projects from '../pages/Projects.vue'
 import About from '../pages/About.vue'
+import Contact from '../pages/Contact.vue'
 const routes = [
     {
         path:'/',
@@ -18,6 +19,11 @@ const routes = [
         path:'/about',
         name:'about',
         component:About
+    },
+    {
+        path:'/contact-me',
+        name:'contactme',
+        component:Contact
     }
 ]
 
