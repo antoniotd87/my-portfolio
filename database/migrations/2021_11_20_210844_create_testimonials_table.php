@@ -15,6 +15,9 @@ class CreateTestimonialsTable extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
+            $table->text('image');
+            $table->text('nombre');
+            $table->text('opinion');
             $table->timestamps();
         });
     }

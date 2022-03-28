@@ -15,7 +15,18 @@ class InicioController extends Controller
      */
     public function index()
     {
-        return view('inicio.index');
+        $latestProject = Project::orderBy('created_at', 'desc')->first();
+        $projects = Project::orderBy('created_at', 'desc')->paginate(3);
+        return view('inicio.index', compact('latestProject', 'projects'));
+    }
+    public function projects()
+    {
+        $projects = Project::orderBy('created_at', 'desc')->paginate(3);
+        return view('inicio.projects', compact('projects'));
+    }
+    public function about()
+    {
+        return view('inicio.about');
     }
     public function latestProject()
     {

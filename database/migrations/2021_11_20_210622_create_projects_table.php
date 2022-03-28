@@ -17,8 +17,10 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->text('name');
             $table->text('description');
-            $table->text('image');
+            $table->text('images');
             $table->text('link');
+            $table->boolean('curso');
+            $table->string('slug');
             $table->timestamps();
         });
     }
