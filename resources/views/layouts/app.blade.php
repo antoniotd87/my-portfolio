@@ -38,10 +38,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Prospectos</a>
+                            <a class="nav-link" href="{{ route('projects.index') }}">Proyectos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('projects.index') }}">Proyectos</a>
+                            <a class="nav-link" href="{{ route('categories.index') }}">Categorias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">Prospectos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('testimonials.index') }}">Testimonios</a>
@@ -85,7 +88,8 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="container py-4">
+            <h2>@yield('template_title')</h2>
             @yield('content')
         </main>
     </div>

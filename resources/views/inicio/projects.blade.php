@@ -1,39 +1,50 @@
 @extends('layouts.inicio')
 
 @section('content')
-    <div class="container-fluid banner">
-        <div class="container py-5">
-            <div class="d-flex flex-column align-items-center text-center my-3 py-5">
-                <div class="title mb-4">
-                    <h2 class="text-blue-800 font-weight-bold">Mira mi trabajo</h2>
-                </div>
-                <div class="buttons">
-                    <a href="#" class="btn btn-light text-blue-800">Trabajemos Juntos</a>
-                    <a href="#" class="btn btn-link text-blue-700">Mira mis otros proyectos</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="container py-5">
-            <div class="row">
-                @foreach ($projects as $project)
-                    <div class="col-md-6">
-                        <div class="m-1">
-                            <div class="project">
-                                <img src="{{ asset('storage/' . $project->image) }}" class="img-fluid rounded" alt="" />
-                            </div>
-                            <h4 class="font-weight-bold my-3">{{ $project->name }}</h4>
-                            <p class="my-1">
-                                <span>{{ Str::limit($project->description, 50) }}</span>
-                            </p>
-                            <a href="" class="btn btn-primary">Ver Proyecto</a>
-                        </div>
-                        <br />
-                        <br />
-                    </div>
+    <section class="shadow-blue white-bg padding mt-0">
+        <h3 class="section-title">Todos mis proyectos</h3>
+        <div class="spacer" data-height="80"></div>
+
+        <!-- portfolio filter (desktop) -->
+        <ul class="portfolio-filter list-inline">
+            <li class="current list-inline-item" data-filter="*">Todos</li>
+            @foreach ($categories as $item)
+                <li class="list-inline-item" data-filter=".{{ $item->slug }}">{{ $item->name }}</li>
+            @endforeach
+        </ul>
+
+        <!-- portfolio filter (mobile) -->
+        <div class="pf-filter-wrapper mb-4">
+            <select class="portfolio-filter-mobile">
+                <option value="*">Todos</option>
+                @foreach ($categories as $item)
+                    <option value=".{{ $item->slug }}">{{ $item->name }}</option>
                 @endforeach
-            </div>
+            </select>
         </div>
-    </div>
+
+        <!-- portolio wrapper -->
+        <div class="row portfolio-wrapper">
+            @foreach ($projects as $project)
+                <!-- portfolio item -->
+                <div class="col-md-4 col-sm-6 grid-item {{ $project->category->slug }}">
+                    <a href="{{ route('show.projectFront', ['project' => $project->id]) }}">
+                        <div class="portfolio-item">
+                            <div class="details">
+                                <h4 class="title">{{ $project->name }}</h4>
+                                <span class="term">{{ $project->description_corta }}</span>
+                            </div>
+                            <span class="plus-icon">+</span>
+                            <div class="thumb">
+                                <img src="{{ asset('storage/projects/' . explode(',', $project->images)[0]) }}"
+                                    alt="Portfolio-title" />
+                                <div class="mask"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+
+        </div>
+    </section>
 @endsection

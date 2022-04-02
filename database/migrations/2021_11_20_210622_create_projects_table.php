@@ -17,10 +17,10 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->text('name');
             $table->text('description');
+            $table->text('description_corta');
             $table->text('images');
             $table->text('link');
-            $table->boolean('curso');
-            $table->string('slug');
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
         });
     }

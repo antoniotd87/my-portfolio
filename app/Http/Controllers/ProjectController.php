@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Project;
+use App\Models\Category;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
+/**
+ * Class ProjectController
+ * @package App\Http\Controllers
+ */
 class ProjectController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +20,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
-        return view('projects.index', compact('projects'));
+        $projects = Project::paginate();
+               return view('project.index', compact('projects'))
+            ->with('i', (request()->input('page', 1) - 1) * $projects->perPage());
     }
 
     /**
@@ -33,108 +32,100 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $project = new Project();
+        $categories = Category::all();
+
+        return view('project.create', compact('project','categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'image' => 'required',
-            'link' => 'required',
-        ]);
+        request()->validate(Project::$rules);
 
-        $file = $request->file('image');
-        //obtenemos el nombre del archivo
-        $nombre = 'projects/' . $request->name . $file->getClientOriginalName();
-        //$request->file('archivo')->store('public/projects');
-        Storage::put('public/' . $nombre,  File::get($file));
+        $project = Project::create($request->all());
 
-        Project::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'link' => $request->link,
-            'image' => $nombre,
-        ]);
-        return redirect()->action('ProjectController@index');
+        return redirect()->route('projects.index')
+            ->with('success', 'Project created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Project  $project
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show($id)
     {
-        //
+        $project = Project::find($id);
+
+        return view('project.show', compact('project'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Project  $project
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit($id)
     {
-        return view('projects.edit', compact('project'));
+        $project = Project::find($id);
+        $categories = Category::all();
+        return view('project.edit', compact('project','categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Project  $project
+     * @param  \Illuminate\Http\Request $request
+     * @param  Project $project
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Project $project)
     {
-        request()->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'link' => 'required',
-        ]);
+        request()->validate(Project::$rules);
 
-        if ($request->file('image')) {
-            Storage::delete('public/' . $project->image);
-            $file = $request->file('image');
-            //obtenemos el nombre del archivo
-            $nombre = 'projects/' . $request->name . $file->getClientOriginalName();
+        $project->update($request->all());
 
-            //$request->file('archivo')->store('public/projects');
-            Storage::disk('local')->put('public/' . $nombre,  File::get($file));
-            $project->update([
-                'name' => $request->name,
-                'description' => $request->description,
-                'link' => $request->link,
-                'image' => $nombre,
-            ]);
-        } else {
-            $project->update([
-                'name' => $request->name,
-                'description' => $request->description,
-                'link' => $request->link
-            ]);
-        }
-        return redirect()->action('ProjectController@index');
+        return redirect()->route('projects.index')
+            ->with('success', 'Project updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(Project $project)
+    public function destroy($id)
     {
-        //
+        $project = Project::find($id)->delete();
+
+        return redirect()->route('projects.index')
+            ->with('success', 'Project deleted successfully');
+    }
+
+    public function uploadImagen(Request $request)
+    {
+        $imagen = $request->file('file');
+        $nombreImagen = time() . '.' . $imagen->extension();
+        $imagen->move(public_path('storage/projects'), $nombreImagen);
+        return response()->json(['correcto' => $nombreImagen]);
+    }
+    public function borrarImagen(Request $request)
+    {
+        if ($request->ajax()) {
+            $imagen = $request->get('imagen');
+
+            if (File::exists('storage/projects/' . $imagen)) {
+                File::delete('storage/projects/' . $imagen);
+            }
+            return response('Imagen Eliminada', 200);
+        }
     }
 }
