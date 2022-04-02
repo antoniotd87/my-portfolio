@@ -20,6 +20,9 @@ class CreateProjectsTable extends Migration
             $table->text('description_corta');
             $table->text('images');
             $table->text('link');
+            $table->text('github')->nullable();
+            $table->text('customer')->nullable();
+            $table->date('date')->nullable();
             $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
         });

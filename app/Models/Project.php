@@ -13,6 +13,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property $description_corta
  * @property $images
  * @property $link
+ * @property $github
+ * @property $customer
+ * @property $date
  * @property $category_id
  * @property $created_at
  * @property $updated_at
@@ -40,7 +43,7 @@ class Project extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','description','description_corta','images','link','category_id'];
+    protected $fillable = ['name','description','description_corta','images','link','github','customer','date','category_id'];
 
 
     /**

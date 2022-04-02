@@ -16,8 +16,7 @@
                         <span class="card-title">Create Project</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('projects.store') }}" role="form"
-                            enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('projects.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
                             @include('project.form')
@@ -28,5 +27,4 @@
             </div>
         </div>
     </section>
-
 @endsection

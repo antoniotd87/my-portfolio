@@ -21,7 +21,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::paginate();
-               return view('project.index', compact('projects'))
+        return view('project.index', compact('projects'))
             ->with('i', (request()->input('page', 1) - 1) * $projects->perPage());
     }
 
@@ -35,7 +35,7 @@ class ProjectController extends Controller
         $project = new Project();
         $categories = Category::all();
 
-        return view('project.create', compact('project','categories'));
+        return view('project.create', compact('project', 'categories'));
     }
 
     /**
@@ -77,7 +77,7 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $categories = Category::all();
-        return view('project.edit', compact('project','categories'));
+        return view('project.edit', compact('project', 'categories'));
     }
 
     /**

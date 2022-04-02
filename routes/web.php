@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/admin', function () {
-    return redirect('admin/login');
+    return redirect('admin/home');
 });
 
-Route::prefix('admin')->group(function () {
-    Auth::routes();
+Auth::routes();
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('/projects', 'ProjectController');
     Route::post('/uploadImagen', 'ProjectController@uploadImagen');
@@ -31,10 +31,3 @@ Route::prefix('admin')->group(function () {
 Route::get('/', 'InicioController@index')->name('inicio');
 Route::get('/projects', 'InicioController@showprojects')->name('show.projects');
 Route::get('/projects/{project}', 'InicioController@showproject')->name('show.projectFront');
-Route::get('/about', 'InicioController@about')->name('about');
-
-Route::get('/api/latestProject', 'InicioController@latestProject')->name('latestProject');
-Route::get('/api/latestThreeProject', 'InicioController@latestThreeProject')->name('latestThreeProject');
-Route::get('/api/allProjects', 'InicioController@allProjects')->name('allProjects');
-
-

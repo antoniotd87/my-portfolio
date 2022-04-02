@@ -34,6 +34,21 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             {!! $errors->first('link', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
+            {{ Form::label('github') }}
+            {{ Form::text('github', $project->github, ['class' => 'form-control' . ($errors->has('github') ? ' is-invalid' : ''),'placeholder' => 'Github']) }}
+            {!! $errors->first('github', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('customer') }}
+            {{ Form::text('customer', $project->customer, ['class' => 'form-control' . ($errors->has('customer') ? ' is-invalid' : ''),'placeholder' => 'Customer']) }}
+            {!! $errors->first('customer', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('date') }}
+            {!! Form::date('date',$project->date, ['class' => 'form-control' . ($errors->has('date') ? ' is-invalid' : ''),'placeholder' => 'Date']) !!}
+            {!! $errors->first('date', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
             {{ Form::label('Categoria') }}
             <select name="category_id" class="form-control">
                 <option value="">Seleccione</option>

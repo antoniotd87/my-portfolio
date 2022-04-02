@@ -41,6 +41,18 @@
                             {{ $project->link }}
                         </div>
                         <div class="form-group">
+                            <strong>Github:</strong>
+                            {{ $project->github }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Customer:</strong>
+                            {{ $project->customer }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Date:</strong>
+                            {{ $project->date }}
+                        </div>
+                        <div class="form-group">
                             <strong>Category Id:</strong>
                             {{ $project->category_id }}
                         </div>
