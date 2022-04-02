@@ -1,183 +1,530 @@
 @extends('layouts.inicio')
 
 @section('content')
-    <div class="container-fluid banner">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="about-me col-md-6">
-                    <div class="title mb-4">
-                        <h2 class="text-blue-800 font-weight-bold">
-                            Soy Antonio Tomas y soy un desarrollador web
-                        </h2>
-                    </div>
-                    <a class="btn btn-light text-blue-700" href="{{ route('projects') }}">Mira mis otros
-                        proyectos</a>
-                    <a class="btn btn-link text-blue-800" href="{{ route('about') }}">Trabajemos Juntos</a>
-                </div>
-                <div class="last-project col-md-6 text-center">
-                    <div class="m-1 latest-project">
-                        @if ($latestProject)
-                            <img src="{{ asset('storage/' . $latestProject->image) }}" class="img-fluid" alt="" />
-                            <p>
-                                <span>Ultimo Proyecto: {{ $latestProject->name }}</span>
-                            </p>
-                        @endif
-                    </div>
-                </div>
+    <!-- preloader -->
+    <div id="preloader">
+        <div class="outer">
+            <div class="spinner">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="container py-5 px-5">
-            <h3 class="text-center font-weight-bold my-5">¿Qué me hace diferente?</h3>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <div class="icon">logo</div>
-                    <div class="text">
-                        <h4>Desarrollo escalable</h4>
-                    </div>
-                    <div class="info">
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Perferendis reiciendis distinctio, iste odio ex commodi quaerat at
-                            magni explicabo saepe dolores repudiandae quia obcaecati natus
-                            quae, doloribus excepturi porro nostrum.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="icon">logo</div>
-                    <div class="text">
-                        <h4>Desarrollo escalable</h4>
-                    </div>
-                    <div class="info">
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Perferendis reiciendis distinctio, iste odio ex commodi quaerat at
-                            magni explicabo saepe dolores repudiandae quia obcaecati natus
-                            quae, doloribus excepturi porro nostrum.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="icon">logo</div>
-                    <div class="text">
-                        <h4>Desarrollo escalable</h4>
-                    </div>
-                    <div class="info">
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Perferendis reiciendis distinctio, iste odio ex commodi quaerat at
-                            magni explicabo saepe dolores repudiandae quia obcaecati natus
-                            quae, doloribus excepturi porro nostrum.
-                        </p>
-                    </div>
+
+    <!-- site wrapper -->
+    <div class="site-wrapper">
+
+        <!-- mobile header -->
+        <div class="mobile-header py-2 px-3 mt-4">
+            <button class="menu-icon mr-2">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="index.html" class="logo"><img src="{{ asset('img/logo.png') }}" alt="Bako Doe" /></a>
+            <a href="index.html" class="site-title dot ml-2">Antonio Tomas</a>
+        </div>
+
+        <!-- header -->
+        <header class="left float-left shadow-dark" id="header">
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="header-inner d-flex align-items-start flex-column">
+                <a href="index.html"><img src="{{ asset('img/logo.png') }}" alt="Bako Doe" /></a>
+                <a href="index.html" class="site-title dot mt-3">Antonio Tomas</a>
+                <span class="site-slogan">Desarrollador Web</span>
+
+                <!-- navigation menu -->
+                <nav>
+                    <ul class="vertical-menu scrollspy">
+                        <li><a href="#home" class="active"><i class="icon-home"></i>Inicio</a></li>
+                        <li><a href="#about"><i class="icon-user"></i>Sobre mi</a></li>
+                        <li><a href="#services"><i class="icon-bulb"></i>Servicios</a></li>
+                        <li><a href="#resume"><i class="icon-graduation"></i>Experiencia</a></li>
+                        <li><a href="#works"><i class="icon-grid"></i>Portafolio</a></li>
+                        <li><a href="#blog"><i class="icon-pencil"></i>Blog</a></li>
+                        <li><a href="#contact"><i class="icon-phone"></i>Contacto</a></li>
+                    </ul>
+                </nav>
+
+                <!-- footer -->
+                <div class="footer mt-auto">
+
+                    <!-- social icons -->
+                    <ul class="social-icons list-inline">
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                    </ul>
+
+                    <!-- copyright -->
+                    <span class="copyright">© 2022 Bako Template</span>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="container py-5">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    @foreach ($projects as $project)
-                        <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
-                            <div class="row align-items-center p-5">
-                                <div class="about-me col-md-6">
-                                    <div class="title mb-4">
-                                        <h2 class="text-blue-800 font-weight-bold">
-                                            {{ $project->name }}
-                                        </h2>
-                                    </div>
-                                    <p>
-                                        {{ Str::limit($project->description, 300) }}
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Mira mis otros proyectos</a>
-                                    <a href="#" class="btn btn-link text-blue-800">Visita el proyecto</a>
-                                </div>
-                                <div class="last-project col-md-6 text-center">
-                                    <div class="m-1 project">
-                                        <img src="{{ asset('storage/' . $project->image) }}" class="img-fluid"
-                                            alt="" />
-                                    </div>
-                                </div>
+        </header>
+
+        <!-- main content area -->
+        <main class="content float-right">
+
+            <!-- section hero -->
+            <section class="hero background parallax shadow-dark d-flex align-items-center" id="home"
+                data-image-src="{{ asset('img/hero.jpg') }}">
+                <div class="cta mx-auto mt-2">
+                    <h1 class="mt-0 mb-4">Soy Tony Tomas<span class="dot"></span></h1>
+                    <p class="mb-4">Un programador aun no titulado &#128549; con las ganas de mejorar cada
+                        software que
+                        se encuentre.</p>
+                    <a href="#" class="btn btn-default btn-lg mr-3"><i class="icon-grid"></i>Ve mis Proyectos</a>
+                    <div class="spacer d-md-none d-lg-none d-sm-none" data-height="10"></div>
+                    <a href="#" class="btn btn-border-light btn-lg"><i class="icon-envelope"></i>Contactame</a>
+                </div>
+                <div class="overlay"></div>
+            </section>
+
+            <!-- section about -->
+            <section id="about" class="shadow-blue white-bg padding">
+                <h3 class="section-title">Sobre mi</h3>
+                <div class="spacer" data-height="80"></div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{{ asset('img/about.png') }}" alt="about" />
+                    </div>
+                    <div class="col-md-9">
+                        <h2 class="mt-4 mt-md-0 mb-4">Hola,</h2>
+                        <p class="mb-0">Soy Antonio Tomas, un desarrollador web con mas de un año de experiencia
+                            en el
+                            diseño y desarrollo de sistemas web, tambien he trabajado en un poco en Wordpress.</p>
+                        <div class="row my-4">
+                            <div class="col-md-6">
+                                <p class="mb-0">Fecha de Nacimiento: <span
+                                        class="text-dark">23/11/1999</span></p>
                             </div>
+                            <div class="col-md-6 mt-2 mt-md-0 mt-sm-2">
+                                <p class="mb-0">Email: <span class="text-dark">antoniotd87@gmail.com</span>
+                                </p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-default mr-3"><i class="icon-cloud-download"></i>Descarga mi CV</a>
+                        <a href="#" class="btn btn-alt mt-2 mt-md-0 mt-xs-2"><i class="icon-envelope"></i>Contactame</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- section skills -->
+            <section id="skills" class="shadow-blue white-bg padding">
+                <h3 class="section-title">Mis conocimientos</h3>
+                <div class="spacer" data-height="80"></div>
+
+                <p class="mb-0">He tenido la experiencia de trabajar con tecnologias de desarrollo web para la
+                    parte del
+                    backend, y actualmente estoy reforzando mis conocimientos para frontend.</p>
+                <p class="my-1">A continuacion menciono que me han ayudado a elaborar mis proyectos</p>
+                <div class="row mt-5">
+
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">Laravel</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">PHP</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">Livewire</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">CodeIgniter</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">MySQL</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">GIT</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">HTML</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">CSS</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">JavaScript</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">Shell de Linux</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">Vue.js</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">React.js</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">Node.js</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- skill item -->
+                        <div class="skill-item">
+                            <div class="skill-info clearfix">
+                                <h4 class="float-left mb-3 mt-0">Flutter</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- section facts -->
+            <section id="facts" class="shadow-dark color-white background parallax padding-50"
+                data-image-src="{{ asset('img/background-1.jpg') }}">
+
+                <div class="row relative z-1">
+                    <div class="col-md-3 col-sm-6">
+                        <!-- fact item -->
+                        <div class="fact-item text-center">
+                            <i class="icon-like icon-circle"></i>
+                            <h2 class="count">10</h2>
+                            <span>Proyectos terminados</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!-- fact item -->
+                        <div class="fact-item text-center">
+                            <i class="icon-cup icon-circle"></i>
+                            <h2 class="count">389</h2>
+                            <span>Tazas de cafe</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!-- fact item -->
+                        <div class="fact-item text-center">
+                            <i class="icon-emotsmile icon-circle"></i>
+                            <h2 class="count">1</h2>
+                            <span>Años de experiencia</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!-- fact item -->
+                        <div class="fact-item text-center">
+                            <i class="icon-trophy icon-circle"></i>
+                            <h2 class="count">50</h2>
+                            <span>Proyectos de cursos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overlay"></div>
+
+            </section>
+
+            <!-- section services -->
+            <section id="services" class="shadow-blue white-bg padding">
+                <h3 class="section-title">Que puedo hacer</h3>
+                <div class="spacer" data-height="80"></div>
+
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-6">
+                        <!-- service item -->
+                        <div class="service-item text-center">
+                            <i class="icon-globe icon-simple"></i>
+                            <h4 class="my-3">Desarrollo de sistemas</h4>
+                        </div>
+                        <div class="spacer" data-height="20"></div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <!-- service item -->
+                        <div class="service-item text-center">
+                            <i class="icon-chemistry icon-simple"></i>
+                            <h4 class="my-3">Diseño de apps</h4>
+                        </div>
+                        <div class="spacer" data-height="20"></div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <!-- service item -->
+                        <div class="service-item text-center">
+                            <i class="icon-directions icon-simple"></i>
+                            <h4 class="my-3">Arquitectura de software</h4>
+                        </div>
+                        <div class="spacer" data-height="20"></div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- section experience -->
+            <section id="resume" class="shadow-blue white-bg padding">
+                <h3 class="section-title">Experiencia</h3>
+                <div class="spacer" data-height="80"></div>
+
+                <!-- timeline -->
+                <div class="timeline">
+                    <div class="entry">
+                        <div class="title">
+                            <span>2021 - Actualidad</span>
+                        </div>
+                        <div class="body">
+                            <h4 class="mt-0">Promo Life</h4>
+                            <p>He tenido la oportunidad de liberar a produccion: Un sistema de encuestas, un Help Desk,
+                                una app E-learning, un cotizador de productos, y un catalogo de productos. Esto con
+                                ayuda de un equipo confiable y comprometido.</p>
+                        </div>
+                    </div>
+                    <div class="entry">
+                        <div class="title">
+                            <span>2020 - 2021</span>
+                        </div>
+                        <div class="body">
+                            <h4 class="mt-0">Tecnologico de Estudios Superiores de San Felipe del Progreso</h4>
+                            <p>En mis practicas profesionales, tuve la oportunidad de colaborar en el desarrollo de dos
+                                sistemas web para el area de vunculacion de la institucion.</p>
+                        </div>
+                    </div>
+                    <span class="timeline-line"></span>
+                </div>
+            </section>
+
+            <!-- section works -->
+            <section id="works" class="shadow-blue white-bg padding">
+                <h3 class="section-title">Mis Proyectos</h3>
+                <div class="spacer" data-height="80"></div>
+
+                <!-- portfolio filter (desktop) -->
+                <ul class="portfolio-filter list-inline">
+                    <li class="current list-inline-item" data-filter="*">Todos</li>
+                    <li class="list-inline-item" data-filter=".branding">Trabajo</li>
+                    <li class="list-inline-item" data-filter=".creative">Personales</li>
+                    <li class="list-inline-item" data-filter=".design">Cursos</li>
+                </ul>
+
+                <!-- portfolio filter (mobile) -->
+                <div class="pf-filter-wrapper mb-4">
+                    <select class="portfolio-filter-mobile">
+                        <option value="*">Todos</option>
+                        <option value=".creative">Trabajo</option>
+                        <option value=".video">Personales</option>
+                        <option value=".design">Cursos</option>
+                    </select>
+                </div>
+
+                <!-- portolio wrapper -->
+                <div class="row portfolio-wrapper">
+                    @foreach ($projects as $project)
+                        <!-- portfolio item -->
+                        <div class="col-md-4 col-sm-6 grid-item video">
+                            <a href="{{ route('show.project', ['project' => $project->id]) }}">
+                                <div class="portfolio-item">
+                                    <div class="details">
+                                        <h4 class="title">{{ $project->name }}</h4>
+                                        <span class="term">Art, Creative</span>
+                                    </div>
+                                    <span class="plus-icon">+</span>
+                                    <div class="thumb">
+                                        <img src="{{ asset('storage/'.$project->image) }}" alt="Portfolio-title" />
+                                        <div class="mask"></div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     @endforeach
-                </div>
-                <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators"
-                    data-slide="prev">
-                    <span class="carousel-control-prev-icon icon-control" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators"
-                    data-slide="next">
-                    <span class="carousel-control-next-icon icon-control" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="container py-5 px-5">
-            <div class="row px-5 mx-5 mt-5 pt-5">
-                <div class="col-md-5 img-profile-content">
-                    <div class="fondo"></div>
-                    <div class="img-profile">
-                        <img src="https://5aldia.cl/wp-content/uploads/2018/04/beneficios-de-las-uvas-cover-696x435.jpg"
-                            alt="" srcset="" class="img-fluid rounded-circle" />
+
+
+                    <!-- portfolio item -->
+                    <div class="col-md-4 col-sm-6 grid-item creative design">
+                        <a href="work-single.html">
+                            <div class="portfolio-item">
+                                <div class="details">
+                                    <h4 class="title">Apple USB</h4>
+                                    <span class="term">Creative, Design</span>
+                                </div>
+                                <span class="plus-icon">+</span>
+                                <div class="thumb">
+                                    <img src="{{ asset('img/portfolio/2.jpg') }}" alt="Portfolio-title" />
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-md-7">
-                    <div class="text">
-                        <h4>Un poco sobre mi</h4>
+
+                    <!-- portfolio item -->
+                    <div class="col-md-4 col-sm-6 grid-item branding">
+                        <a href="work-single.html">
+                            <div class="portfolio-item">
+                                <div class="details">
+                                    <h4 class="title">Work Space</h4>
+                                    <span class="term">Branding</span>
+                                </div>
+                                <span class="plus-icon">+</span>
+                                <div class="thumb">
+                                    <img src="{{ asset('img/portfolio/3.jpg') }}" alt="Portfolio-title" />
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="info">
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Perferendis reiciendis distinctio.
-                        </p>
-                        <p>
-                            Iste odio ex commodi quaerat at magni explicabo saepe dolores
-                            repudiandae quia obcaecati natus quae, doloribus excepturi porro
-                            nostrum.
-                        </p>
-                        <a href="" class="btn btn-link p-0">Conoce mas sobre mi</a>
-                        <br />
-                        <br />
-                        <p class="font-weight-bold">Tecnologias y herramientas</p>
-                        <div class="d-flex">
-                            <div class="icon-tool p-1">
-                                <div class="img-thumbnail">
-                                    <img height="40" src="https://laravel.com/img/logomark.min.svg" alt="" />
+
+                    <!-- portfolio item -->
+                    <div class="col-md-4 col-sm-6 grid-item creative">
+                        <a href="work-single.html">
+                            <div class="portfolio-item">
+                                <div class="details">
+                                    <h4 class="title">Creative Bulb</h4>
+                                    <span class="term">Creative</span>
+                                </div>
+                                <span class="plus-icon">+</span>
+                                <div class="thumb">
+                                    <img src="{{ asset('img/portfolio/4.jpg') }}" alt="Portfolio-title" />
+                                    <div class="mask"></div>
                                 </div>
                             </div>
-                            <div class="icon-tool p-1">
-                                <div class="img-thumbnail">
-                                    <img height="40" src="https://vuejs.org/images/logo.svg" alt="" />
+                        </a>
+                    </div>
+
+                    <!-- portfolio item -->
+                    <div class="col-md-4 col-sm-6 grid-item video branding">
+                        <a href="work-single.html">
+                            <div class="portfolio-item">
+                                <div class="details">
+                                    <h4 class="title">iPhone 8</h4>
+                                    <span class="term">Art, Branding</span>
+                                </div>
+                                <span class="plus-icon">+</span>
+                                <div class="thumb">
+                                    <img src="{{ asset('img/portfolio/5.jpg') }}" alt="Portfolio-title" />
+                                    <div class="mask"></div>
                                 </div>
                             </div>
-                            <div class="icon-tool p-1">
-                                <div class="img-thumbnail">
-                                    <img height="40" src="https://www.php.net/images/logos/php-logo.svg" alt="" />
+                        </a>
+                    </div>
+
+                    <!-- portfolio item -->
+                    <div class="col-md-4 col-sm-6 grid-item creative design">
+                        <a href="work-single.html">
+                            <div class="portfolio-item">
+                                <div class="details">
+                                    <h4 class="title">Minimal Art</h4>
+                                    <span class="term">Design, Creative</span>
+                                </div>
+                                <span class="plus-icon">+</span>
+                                <div class="thumb">
+                                    <img src="{{ asset('img/portfolio/6.jpg') }}" alt="Portfolio-title" />
+                                    <div class="mask"></div>
                                 </div>
                             </div>
-                            <div class="icon-tool p-1">
-                                <div class="img-thumbnail">
-                                    <img height="40"
-                                        src="data:image/png;base64,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"
-                                        alt="" />
-                                </div>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- more button -->
+                <div class="load-more text-center mt-4">
+                    <a href="javascript:" class="btn btn-default"><i class="fas fa-circle-notch"></i> Load more</a>
+                    <!-- numbered pagination (hidden for infinite scroll) -->
+                    <ul class="portfolio-pagination list-inline d-none">
+                        <li class="list-inline-item">1</li>
+                        <li class="list-inline-item"><a href="works-2.html">2</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- section contact -->
+            <section id="contact" class="shadow-blue white-bg padding">
+                <h3 class="section-title">Contactame</h3>
+                <div class="spacer" data-height="80"></div>
+
+                <div class="row">
+
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <!-- contact info -->
+                        <div class="contact-info mb-5">
+                            <i class="icon-phone"></i>
+                            <div class="details">
+                                <h5>Telefono</h5>
+                                <span>+52 712 173 51 17</span>
+                            </div>
+                        </div>
+                        <div class="contact-info mb-5">
+                            <i class="icon-envelope"></i>
+                            <div class="details">
+                                <h5>Email</h5>
+                                <span>antoniotd87@gmail.com</span>
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </div>
-        </div>
+
+            </section>
+
+        </main>
+
     </div>
 @endsection

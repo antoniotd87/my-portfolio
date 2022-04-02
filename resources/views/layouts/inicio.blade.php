@@ -4,191 +4,55 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Tony - Portafolio Personal</title>
+    <meta name="description" content="Bako - Personal Portfolio & Resume HTML Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ asset('css/simple-line-icons.css') }}" type="text/css" media="all">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" media="all">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e151828a19.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div id="">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="{{ asset('img/TONY.png') }}" height="40" alt="" />
-                </a>
-                <div class="">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('inicio') }}">Inicio</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('projects') }}">Proyectos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('about') }}">Acerca de mi</a>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        @yield('content')
+    @yield('content')
 
-        <div class="container-fluid">
-            <div class="container contact py-5">
-                <div class="d-flex flex-column align-items-center text-center">
-                    <div class="title mb-4">
-                        <p class="text-blue-800">Yo estoy listo, ¿y tú?</p>
-                        <h2 class="text-blue-800 font-weight-bold">Creemeos algo nuevo</h2>
-                    </div>
-                    <div class="buttons">
-                        <router-link :to="{ name: 'contactme' }">
-                            <a href="#" class="btn btn-light text-blue-800">Trabajemos Juntos</a>
-                        </router-link>
-                        <a href="#" class="btn btn-link text-blue-700">Mira mis otros proyectos</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="d-flex my-5 justify-content-between align-items-center">
-                    <div class="redes">
-                        <i class="fab fa-facebook fa-2x"></i>
-                        <i class="fab fa-whatsapp fa-2x"></i>
-                        <i class="fab fa-linkedin fa-2x"></i>
-                    </div>
-                    <div class="info-contact">
-                        <p>Contactame en:</p>
-                        <span><i class="fas fa-phone-alt"></i> 712 173 5117</span>
-                        <span><i class="fas fa-envelope"></i> antoniotd87@gmail.com</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <style>
-        .container.contact {
-            background-image: url("/img/banner.jpg");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            border-radius: 10px;
-            margin-top: 4rem;
-        }
+    <!-- Go to top button -->
+    <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 
-        .btn-link:hover {
-            text-decoration: none;
-        }
+    <!-- SCRIPTS -->
+    <script src="{{ asset('js/jquery-1.12.3.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('js/infinite-scroll.min.js') }}"></script>
+    <script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('js/slick.min.js') }}"></script>
+    <script src="{{ asset('js/contact.js') }}"></script>
+    <script src="{{ asset('js/validator.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 
-        .latest-project {
-            position: relative;
-        }
-
-        .latest-project p {
-            opacity: 0.9;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            margin-bottom: 0;
-            margin: 0.4em 1rem;
-            padding: 0.25rem;
-            border-radius: 6px;
-        }
-
-        .latest-project p span {
-            opacity: 1;
-            color: white;
-            font-weight: bold;
-        }
-
-        .container-fluid.banner {
-            background-image: url("/img/banner.jpg");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-        }
-
-        .btn-link:hover {
-            text-decoration: none;
-        }
-
-        .latest-project {
-            position: relative;
-            max-height: 300px;
-            overflow: hidden;
-            border-radius: 15px;
-        }
-
-        .latest-project p {
-            opacity: 0.9;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            margin-bottom: 0;
-            margin: 0.4em 1rem;
-            padding: 0.25rem;
-            border-radius: 6px;
-        }
-
-        .latest-project p span {
-            opacity: 1;
-            color: white;
-            font-weight: bold;
-        }
-
-        .carousel-control-prev,
-        .carousel-control-next {
-            width: 0;
-            padding: 1rem;
-        }
-
-        .icon-control {
-            padding: 0.8rem;
-            border-radius: 50%;
-        }
-
-        .project {
-            max-height: 300px;
-            overflow: hidden;
-            border-radius: 15px;
-        }
-
-        .img-profile-content {
-            position: relative;
-        }
-
-        .img-profile {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            text-align: center;
-        }
-
-        .img-profile img {
-            max-width: 80%;
-        }
-
-        .fondo::after {
-            content: "";
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-            border-radius: 20px;
-        }
-
-    </style>
 </body>
 
 </html>
