@@ -52,8 +52,8 @@
                 <span></span>
                 <span></span>
             </button>
-            <a href="index.html" class="logo"><img src="{{ asset('img/logo.png') }}" alt="Bako Doe" /></a>
-            <a href="index.html" class="site-title dot ml-2">Antonio Tomas</a>
+            <a href="{{ url('/') }}" class="logo"><img src="{{ asset('img/about.png') }}" class="img-fluid rounded-circle" alt="Bako Doe" /></a>
+            <a href="{{ url('/') }}" class="site-title dot ml-2">Antonio Tomas</a>
         </div>
 
         <!-- header -->
@@ -62,8 +62,8 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             <div class="header-inner d-flex align-items-start flex-column">
-                <a href="index.html"><img src="{{ asset('img/logo.png') }}" alt="Bako Doe" /></a>
-                <a href="index.html" class="site-title dot mt-3">Antonio Tomas</a>
+                <a href="{{ url('/') }}"><img src="{{ asset('img/about.png') }}"  class="img-fluid rounded-circle w-50" alt="Bako Doe" /></a>
+                <a href="{{ url('/') }}" class="site-title dot mt-3">Antonio Tomas</a>
                 <span class="site-slogan">Desarrollador Web</span>
 
                 <!-- navigation menu -->

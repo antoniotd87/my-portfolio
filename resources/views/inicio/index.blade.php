@@ -23,7 +23,7 @@
 
         <div class="row">
             <div class="col-md-3">
-                <img src="{{ asset('img/about.png') }}" alt="about" />
+                <img src="{{ asset('img/about.png') }}" class="img-fluid rounded-circle" alt="about" />
             </div>
             <div class="col-md-9">
                 <h2 class="mt-4 mt-md-0 mb-4">Hola,</h2>
@@ -39,7 +39,7 @@
                         </p>
                     </div>
                 </div>
-                <a href="#" class="btn btn-default mr-3"><i class="icon-cloud-download"></i>Descarga mi CV</a>
+                <a href="{{asset('cv/CV.pdf')}}" class="btn btn-default mr-3" download="CV Antonio Tomas Dominguez.pdf"><i class="icon-cloud-download"></i>Descarga mi CV</a>
                 <a href="#contact" class="btn btn-alt mt-2 mt-md-0 mt-xs-2"><i class="icon-envelope"></i>Contactame</a>
             </div>
         </div>
