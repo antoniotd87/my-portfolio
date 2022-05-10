@@ -53,7 +53,7 @@
         <p class="mb-0">He tenido la experiencia de trabajar con tecnologias de desarrollo web para la
             parte del
             backend, y actualmente estoy reforzando mis conocimientos para frontend.</p>
-        <p class="my-1">A continuacion menciono que me han ayudado a elaborar mis proyectos</p>
+        <p class="my-1">A continuacion menciono las herramientas que me han ayudado a elaborar mis proyectos</p>
         <div class="row mt-5">
 
             <div class="col-md-3">
@@ -160,14 +160,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <!-- skill item -->
-                <div class="skill-item">
-                    <div class="skill-info clearfix">
-                        <h4 class="float-left mb-3 mt-0">Flutter</h4>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -180,7 +172,7 @@
                 <!-- fact item -->
                 <div class="fact-item text-center">
                     <i class="icon-like icon-circle"></i>
-                    <h2 class="count">10</h2>
+                    <h2 class="count">12</h2>
                     <span>Proyectos terminados</span>
                 </div>
             </div>
@@ -260,7 +252,7 @@
         <div class="timeline">
             <div class="entry">
                 <div class="title">
-                    <span>2021 - Actualidad</span>
+                    <span>Abr-2021 - Actualidad</span>
                 </div>
                 <div class="body">
                     <h4 class="mt-0">Promo Life</h4>
@@ -271,7 +263,7 @@
             </div>
             <div class="entry">
                 <div class="title">
-                    <span>2020 - 2021</span>
+                    <span>Abr-2020 - Ene-2021</span>
                 </div>
                 <div class="body">
                     <h4 class="mt-0">Tecnologico de Estudios Superiores de San Felipe del Progreso</h4>
